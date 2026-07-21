@@ -1,57 +1,68 @@
-/* Progressive enhancement only — the pages work without this file. */
+/* Progressive enhancement only — the pages work without this file.
+   With JS off, every reel is a plain link straight to the Instagram post. */
 (function () {
   'use strict';
 
-  /* YouTube facade: the poster frame is all that loads until someone presses
-     play, so Google's iframe and cookies stay out of the page until asked for. */
-  document.querySelectorAll('[data-youtube]').forEach(function (frame) {
-    var id = frame.dataset.youtube;
-    if (!id || id.indexOf('YOUTUBE_ID') === 0) return;
-
-    frame.style.backgroundImage =
-      'url(https://i.ytimg.com/vi/' + encodeURIComponent(id) + '/maxresdefault.jpg)';
-
-    frame.addEventListener('click', function () {
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
-                   '?autoplay=1&rel=0&modestbranding=1';
-      iframe.title = frame.dataset.title || 'Video player';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      frame.replaceChildren(iframe);
-      frame.style.cursor = 'default';
-    }, { once: true });
-  });
-
-  /* Lightbox */
   var dialog = document.getElementById('lightbox');
+  var body = dialog && dialog.querySelector('.lightbox__inner');
+  var supported = dialog && typeof dialog.showModal === 'function';
 
-  if (dialog && typeof dialog.showModal === 'function') {
-    var img = dialog.querySelector('img');
-    var caption = dialog.querySelector('.lightbox__caption');
+  function open(node) {
+    body.replaceChildren(node);
+    dialog.showModal();
+  }
 
+  /* Instagram reels — nothing is requested from Instagram until a click. */
+  if (supported) {
+    document.querySelectorAll('[data-embed]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.instagram.com/p/' +
+                     encodeURIComponent(link.dataset.embed) + '/embed/captioned/';
+        iframe.title = link.dataset.title || 'Instagram video';
+        iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.scrolling = 'no';
+        open(iframe);
+      });
+    });
+  }
+
+  /* Photographs */
+  if (supported) {
     document.querySelectorAll('.shot__btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var figure = btn.closest('.shot');
         var source = figure && figure.querySelector('img');
         if (!source) return;
 
+        var wrap = document.createElement('div');
+        var img = document.createElement('img');
         img.src = source.currentSrc || source.src;
         img.alt = source.alt || '';
+        wrap.appendChild(img);
+
         var figcaption = figure.querySelector('figcaption');
-        caption.textContent = figcaption ? figcaption.textContent.trim() : '';
-        dialog.showModal();
+        if (figcaption) {
+          var p = document.createElement('p');
+          p.className = 'lightbox__caption';
+          p.textContent = figcaption.textContent.trim();
+          wrap.appendChild(p);
+        }
+        open(wrap);
       });
     });
+  }
 
+  if (dialog) {
     dialog.addEventListener('click', function (e) {
       if (e.target === dialog || e.target.closest('.lightbox__close')) dialog.close();
     });
-
-    dialog.addEventListener('close', function () {
-      img.removeAttribute('src');
-      caption.textContent = '';
-    });
+    /* Drop the iframe on close so the video actually stops. */
+    dialog.addEventListener('close', function () { body.replaceChildren(); });
   }
 
   document.querySelectorAll('[data-year]').forEach(function (el) {

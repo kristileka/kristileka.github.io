@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- ===== Primary SEO ===================================================== -->
-<title>Travel &amp; Drone — Kristi Leka</title>
-<meta name="description" content="Aerial films and travel photography by Kristi Leka — backend engineer by trade, drone pilot the rest of the time. Based in Tirana, Albania.">
+<title>Travel — Kristi Leka</title>
+<meta name="description" content="Travel and aerial drone films by Kristi Leka — the Azores, Iceland, and wherever the drone comes out next. Backend engineer by trade, based in Tirana.">
 <link rel="canonical" href="https://kristileka.github.io/travel/">
 <meta name="author" content="Kristi Leka">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -15,17 +15,17 @@
 <!-- ===== Open Graph / social ============================================= -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kristi Leka">
-<meta property="og:title" content="Travel &amp; Drone — Kristi Leka">
-<meta property="og:description" content="Aerial films and travel photography by Kristi Leka — backend engineer by trade, drone pilot the rest of the time.">
+<meta property="og:title" content="Travel — Kristi Leka">
+<meta property="og:description" content="Travel and aerial drone films by Kristi Leka — the Azores, Iceland and wherever the drone comes out of the bag next.">
 <meta property="og:url" content="https://kristileka.github.io/travel/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kristileka.github.io/assets/img/og-travel.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Travel and drone films by Kristi Leka">
+<meta property="og:image:alt" content="Travel films by Kristi Leka">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Travel &amp; Drone — Kristi Leka">
-<meta name="twitter:description" content="Aerial films and travel photography by Kristi Leka.">
+<meta name="twitter:title" content="Travel — Kristi Leka">
+<meta name="twitter:description" content="Travel and aerial drone films by Kristi Leka.">
 <meta name="twitter:image" content="https://kristileka.github.io/assets/img/og-travel.png">
 
 <!-- ===== Icons =========================================================== -->
@@ -48,8 +48,8 @@
       "@type": "CollectionPage",
       "@id": "https://kristileka.github.io/travel/#page",
       "url": "https://kristileka.github.io/travel/",
-      "name": "Travel & Drone — Kristi Leka",
-      "description": "Aerial films and travel photography by Kristi Leka.",
+      "name": "Travel — Kristi Leka",
+      "description": "Travel and aerial drone films by Kristi Leka.",
       "inLanguage": "en",
       "isPartOf": { "@id": "https://kristileka.github.io/#website" },
       "creator": { "@id": "https://kristileka.github.io/#kristileka" }
@@ -68,14 +68,15 @@
       "knowsAbout": ["Drone cinematography", "Aerial photography", "Travel photography", "Kotlin", "Scala"],
       "sameAs": [
         "https://github.com/kristileka",
-        "https://www.linkedin.com/in/kristileka/"
+        "https://www.linkedin.com/in/kristileka/",
+        "https://www.instagram.com/kristilekaa/"
       ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Kristi Leka", "item": "https://kristileka.github.io/" },
-        { "@type": "ListItem", "position": 2, "name": "Travel & Drone", "item": "https://kristileka.github.io/travel/" }
+        { "@type": "ListItem", "position": 2, "name": "Travel", "item": "https://kristileka.github.io/travel/" }
       ]
     }
   ]
@@ -92,16 +93,15 @@
     <p class="masthead__name"><a href="/">Kristi Leka</a></p>
     <nav aria-label="Primary">
       <a href="/">Work</a>
-      <a href="/travel/" aria-current="page">Travel &amp; drone</a>
-      <!-- EDIT ME: replace YOUR_INSTAGRAM with your real handle (3 places on this page). -->
-      <a href="https://www.instagram.com/YOUR_INSTAGRAM/" rel="me noopener">Instagram</a>
+      <a href="/travel/" aria-current="page">Travel</a>
+      <a href="https://www.instagram.com/kristilekaa/" rel="me noopener">Instagram</a>
     </nav>
   </header>
 
   <main id="main">
 
     <section class="intro">
-      <h1>Travel &amp; drone</h1>
+      <h1>Travel</h1>
       <p class="intro__role">Aerial films and photographs</p>
 
       <div class="intro__body">
@@ -117,106 +117,148 @@
       <p class="section__label">Films</p>
 
       <!--  ADD A FILM  ─────────────────────────────────────────────────────────
-            Replace YOUTUBE_ID_1 with the id from the watch URL: for
-            https://www.youtube.com/watch?v=dQw4w9WgXcQ the id is dQw4w9WgXcQ.
-            The poster frame is fetched from YouTube automatically. Delete any
-            card you don't need — the grid reflows on its own.
+            1. Save the post's cover image to /assets/img/reels/<code>.webp
+               (curl -sL "https://www.instagram.com/p/<code>/media/?size=l" will
+               give you the cover; convert it to WebP at about 480px wide).
+            2. Copy a block below, swap the code in both the href and
+               data-embed, point the <img> at the new file, and write the
+               caption and alt text.
+            The Instagram embed only loads when someone clicks — with
+            JavaScript off, the link goes straight to the post instead.
       ────────────────────────────────────────────────────────────────────── -->
 
-      <div class="films">
-        <article class="film">
-          <button class="film__frame" type="button" data-youtube="YOUTUBE_ID_1" data-title="Aerial film by Kristi Leka">
-            <span class="film__play" aria-hidden="true">
+      <ul class="reels">
+
+        <li>
+          <a class="reel" href="https://www.instagram.com/p/DXMe20UDXba/"
+             data-embed="DXMe20UDXba" data-title="Monte Palace Hotel, São Miguel" rel="me noopener">
+            <img src="/assets/img/reels/DXMe20UDXba.webp" width="480" height="852"
+                 loading="lazy" decoding="async"
+                 alt="Aerial view of the abandoned Monte Palace Hotel above the Sete Cidades lake, São Miguel, Azores">
+            <span class="reel__play" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg>
             </span>
-            <span class="visually-hidden">Play film</span>
-          </button>
-          <h3>Film title</h3>
-          <p>Where it was shot <!-- EDIT --></p>
-        </article>
+            <span class="reel__caption">Monte Palace Hotel<em>São Miguel, Azores</em></span>
+          </a>
+        </li>
 
-        <article class="film">
-          <button class="film__frame" type="button" data-youtube="YOUTUBE_ID_2" data-title="Aerial film by Kristi Leka">
-            <span class="film__play" aria-hidden="true">
+        <li>
+          <a class="reel" href="https://www.instagram.com/p/DWY1BYpDdRL/"
+             data-embed="DWY1BYpDdRL" data-title="Gorreana Tea Plantation, São Miguel" rel="me noopener">
+            <img src="/assets/img/reels/DWY1BYpDdRL.webp" width="480" height="852"
+                 loading="lazy" decoding="async"
+                 alt="Aerial view of the terraced rows of the Gorreana tea plantation, São Miguel, Azores">
+            <span class="reel__play" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg>
             </span>
-            <span class="visually-hidden">Play film</span>
-          </button>
-          <h3>Film title</h3>
-          <p>Where it was shot <!-- EDIT --></p>
-        </article>
+            <span class="reel__caption">Gorreana Tea Plantation<em>São Miguel, Azores</em></span>
+          </a>
+        </li>
 
-        <article class="film">
-          <button class="film__frame" type="button" data-youtube="YOUTUBE_ID_3" data-title="Aerial film by Kristi Leka">
-            <span class="film__play" aria-hidden="true">
+        <li>
+          <a class="reel" href="https://www.instagram.com/p/DP6au9yCPmD/"
+             data-embed="DP6au9yCPmD" data-title="Black sand coastline, Iceland" rel="me noopener">
+            <img src="/assets/img/reels/DP6au9yCPmD.webp" width="480" height="852"
+                 loading="lazy" decoding="async"
+                 alt="Black sand beach meeting a steep dark mountain under low cloud, Iceland">
+            <span class="reel__play" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg>
             </span>
-            <span class="visually-hidden">Play film</span>
-          </button>
-          <h3>Film title</h3>
-          <p>Where it was shot <!-- EDIT --></p>
-        </article>
-      </div>
-    </section>
+            <span class="reel__caption">Black sand coast<em>Iceland</em></span>
+          </a>
+        </li>
 
-    <section class="section" id="stills">
-      <p class="section__label">Stills</p>
+        <!-- TODO: locations for the three below — see README section 1. -->
 
-      <p class="gallery-intro">
-        Click any frame to open it full size. More on
-        <a href="https://www.instagram.com/YOUR_INSTAGRAM/" rel="me noopener">Instagram</a>.
+        <li>
+          <a class="reel" href="https://www.instagram.com/p/DYUQKZSN02m/"
+             data-embed="DYUQKZSN02m" data-title="Waterfall lagoon" rel="me noopener">
+            <img src="/assets/img/reels/DYUQKZSN02m.webp" width="480" height="852"
+                 loading="lazy" decoding="async"
+                 alt="Dozens of thin waterfalls falling down a green cliff face into a still lagoon">
+            <span class="reel__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg>
+            </span>
+            <span class="reel__caption">Waterfall lagoon</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="reel" href="https://www.instagram.com/p/DWMW-DZjFDm/"
+             data-embed="DWMW-DZjFDm" data-title="Clifftop trail" rel="me noopener">
+            <img src="/assets/img/reels/DWMW-DZjFDm.webp" width="480" height="852"
+                 loading="lazy" decoding="async"
+                 alt="Narrow trail along a green clifftop dropping to turquoise ocean, a single walker on the path">
+            <span class="reel__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg>
+            </span>
+            <span class="reel__caption">Clifftop trail</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="reel" href="https://www.instagram.com/p/DQ6pa_nDQlv/"
+             data-embed="DQ6pa_nDQlv" data-title="Geothermal field" rel="me noopener">
+            <img src="/assets/img/reels/DQ6pa_nDQlv.webp" width="480" height="852"
+                 loading="lazy" decoding="async"
+                 alt="A lone figure standing in drifting steam on the ochre ground of a geothermal field">
+            <span class="reel__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg>
+            </span>
+            <span class="reel__caption">Geothermal field</span>
+          </a>
+        </li>
+
+      </ul>
+
+      <p class="note" style="margin-top:1.5rem">
+        More of it, as it happens, on
+        <a href="https://www.instagram.com/kristilekaa/" rel="me noopener">Instagram</a>.
       </p>
-
-      <!--  ADD A PHOTO  ────────────────────────────────────────────────────────
-            Run `npm run images` to generate the files, then replace an empty
-            slot below with this block. Alt text is what gets you into Google
-            Images — describe the place, not "photo1".
-
-            <figure class="shot">
-              <img src="/assets/img/gallery/llogara-pass-1600.webp"
-                   srcset="/assets/img/gallery/llogara-pass-800.webp 800w,
-                           /assets/img/gallery/llogara-pass-1600.webp 1600w"
-                   sizes="(max-width: 34em) 100vw, 33vw"
-                   width="1600" height="1200" loading="lazy" decoding="async"
-                   alt="Aerial view of the Llogara Pass switchbacks meeting the Albanian Riviera at sunset">
-              <button class="shot__btn" type="button"><span class="visually-hidden">Open full size</span></button>
-              <figcaption>Llogara Pass, Albania</figcaption>
-            </figure>
-
-            Use class="shot shot--wide" to make one span two columns.
-      ────────────────────────────────────────────────────────────────────── -->
-
-      <div class="gallery">
-        <figure class="shot shot--empty shot--wide"><span>Photo slot</span></figure>
-        <figure class="shot shot--empty"><span>Photo slot</span></figure>
-        <figure class="shot shot--empty"><span>Photo slot</span></figure>
-        <figure class="shot shot--empty"><span>Photo slot</span></figure>
-      </div>
     </section>
+
+    <!--  ADD PHOTOGRAPHS  ──────────────────────────────────────────────────────
+          There is no stills section yet because there are no stills to put in
+          it. When you have some, run `npm run images` and drop this in above
+          the footer — the lightbox already handles it.
+
+          <section class="section" id="stills">
+            <p class="section__label">Stills</p>
+            <div class="gallery">
+              <figure class="shot">
+                <img src="/assets/img/gallery/llogara-pass-1600.webp"
+                     srcset="/assets/img/gallery/llogara-pass-800.webp 800w,
+                             /assets/img/gallery/llogara-pass-1600.webp 1600w"
+                     sizes="(max-width: 34em) 100vw, 33vw"
+                     width="1600" height="1200" loading="lazy" decoding="async"
+                     alt="Describe the place and what is in frame — this is what gets you into Google Images">
+                <button class="shot__btn" type="button"><span class="visually-hidden">Open full size</span></button>
+                <figcaption>Llogara Pass, Albania</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          Add class="shot shot--wide" to make one span two columns.
+    ────────────────────────────────────────────────────────────────────── -->
 
   </main>
 
   <footer class="footer">
-    <p>&copy; <span data-year>2026</span> Kristi Leka — photographs my own</p>
+    <p>&copy; <span data-year>2026</span> Kristi Leka — films my own</p>
     <ul>
       <li><a href="/">Work</a></li>
-      <li><a href="https://www.instagram.com/YOUR_INSTAGRAM/" rel="me noopener">Instagram</a></li>
+      <li><a href="https://www.instagram.com/kristilekaa/" rel="me noopener">Instagram</a></li>
       <li><a href="mailto:m.kristileka@gmail.com">Email</a></li>
     </ul>
   </footer>
 
 </div>
 
-<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+<dialog class="lightbox" id="lightbox" aria-label="Media viewer">
   <button class="lightbox__close" type="button" aria-label="Close">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" width="18" height="18" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
   </button>
-  <div class="lightbox__inner">
-    <div>
-      <img alt="">
-      <p class="lightbox__caption"></p>
-    </div>
-  </div>
+  <div class="lightbox__inner"></div>
 </dialog>
 
 <script src="/assets/js/main.js" defer></script>

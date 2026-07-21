@@ -1,31 +1,41 @@
 # kristileka.github.io
 
-Personal site — a technical profile page and a travel/drone page. Static HTML, no build
-step, no framework. Everything is hand-editable.
+Personal site — a work page and a travel page. Static HTML, no build step, no framework.
+Everything is hand-editable.
 
 ```
-index.html            engineering profile (the SEO centrepiece)
-travel/index.html     travel & drone films
+index.html            work: Viaduct and GraphDSL (the SEO centrepiece)
+travel/index.html     travel films, pulled from Instagram
 404.html
-assets/css/main.css   design system — both pages share it
-assets/js/main.js     nav, lightbox, YouTube facade, scroll reveal
-assets/img/           favicon, social preview cards, gallery
+assets/css/main.css   design system — all pages share it
+assets/js/main.js     lightbox + Instagram embed loader (~50 lines)
+assets/img/reels/     self-hosted cover images for the films
+assets/img/gallery/   photographs (empty until you add some)
 sitemap.xml, robots.txt, site.webmanifest
 scripts/              image optimiser
 ```
 
 ---
 
-## 1. Before you publish
+## 1. Outstanding
 
-Four things are placeholders. The site works without them, but these are the gaps:
+Nothing is broken and no placeholder links ship. Two things would improve it:
 
 | What | Where | Notes |
 |---|---|---|
-| Instagram handle | `travel/index.html` — search `YOUR_INSTAGRAM` | 4 occurrences |
-| YouTube video ids | `travel/index.html` — search `YOUTUBE_ID_` | 3 film cards |
-| Gallery photos | `travel/index.html` — the `shot--empty` blocks | see section 4 |
-| Instagram in structured data | `index.html` — the `sameAs` array | see section 6 |
+| Locations for three films | `travel/index.html` — search `TODO` | captions read `Waterfall lagoon`, `Clifftop trail`, `Geothermal field` |
+| Photographs | `travel/index.html` — commented-out stills block | see section 4 |
+
+The other three films caption themselves from the text burned into the video, so
+*Monte Palace Hotel*, *Gorreana Tea Plantation* and *Iceland* are accurate as written.
+
+Everything else comes from your CV and the two repositories. The prose is a draft in your
+voice; read it once and make it sound like you.
+
+The homepage is deliberately short — it exists to point at Viaduct and GraphDSL, and
+nothing competes with them. There is no employment history, no metrics wall and no skills
+grid; the CV covers those, and no employer or client is named anywhere on the site. The
+full detail still ships in the JSON-LD, which search engines read and visitors never see.
 
 Everything else comes from your CV and the two repositories. The prose is a draft in your
 voice; read it once and make it sound like you.
@@ -148,23 +158,33 @@ If the gallery ever grows past a few hundred photos, move the files behind Cloud
 (zero egress fees) on an `img.kristileka.dev` subdomain — still your domain, so the SEO
 argument above still holds.
 
-## 5. Video — do not self-host
+## 5. Video — Instagram, not self-hosted
 
-4K drone footage on GitHub Pages will be slow and will blow through the bandwidth
-allowance. Upload to **YouTube**, then put the video id into the film cards.
+4K drone footage on GitHub Pages would be slow and would blow through the bandwidth
+allowance, so the films stay on Instagram and this page points at them.
 
-This is also the SEO-correct answer: YouTube is the second largest search engine, the
-video ranks there on its own, and the embed here earns a second surface. Title the
-uploads with real place names — *"Llogara Pass, Albania — 4K drone"* — since that is what
-people actually search.
+Each card is a **self-hosted cover image wrapped in a plain link to the post**. Clicking
+opens Instagram's embed inside the lightbox; nothing is requested from Instagram until
+that click, so the page stays fast and no third-party cookies land on first paint. With
+JavaScript disabled the same card is just a link straight to the post, which is why it
+degrades cleanly.
 
-The cards use a click-to-load facade: the poster frame is shown, and YouTube's iframe and
-cookies only load when someone presses play. That keeps the page fast and avoids
-third-party tracking on first paint.
+To add a film, grab its cover and convert it:
 
-Vimeo is the alternative if you want no ads and better colour handling, but it costs
-money and brings far less discovery. Instagram Reels are for reach, not for hosting —
-link to them, don't embed them.
+```bash
+CODE=DYUQKZSN02m
+curl -sL -A "Mozilla/5.0" "https://www.instagram.com/p/$CODE/media/?size=l" -o cover.jpg
+ffmpeg -i cover.jpg -vf "scale=480:-2" -quality 78 "assets/img/reels/$CODE.webp"
+```
+
+Then copy a `<li>` block in `travel/index.html`, swap the code in both the `href` and
+`data-embed`, point the `<img>` at the new file, and write the caption and alt text.
+
+Two caveats worth knowing. Instagram's cover URLs are signed and expire, so download
+rather than hot-link — which is what the command above does. And if you ever want the
+video itself to rank in search, Instagram won't do that for you; YouTube would, since it
+is the second largest search engine and the video would rank there on its own. Right now
+the films are here to be seen, not to be found, which is a reasonable trade.
 
 ---
 

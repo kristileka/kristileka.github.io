@@ -240,45 +240,65 @@ code { font-family: var(--mono); font-size: 0.88em; }
 
 .footer ul { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 
-/* --- Travel: films -------------------------------------------------------- */
+/* --- Travel: reels -------------------------------------------------------
+   Covers are self-hosted; the Instagram embed only loads on click.        */
 
-.films {
+.reels {
   display: grid;
-  gap: 1.75rem 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr));
 }
 
-.film__frame {
+.reel {
   position: relative;
   display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  padding: 0;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
   border: 1px solid var(--rule);
-  background: var(--paper-2) center / cover no-repeat;
-  cursor: pointer;
+  background: var(--paper-2);
+  text-decoration: none;
 }
 
-.film__play {
+.reel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel__play {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 3rem;
-  height: 3rem;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 1.6rem;
+  height: 1.6rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--paper);
-  color: var(--ink);
-  border: 1px solid var(--rule);
+  background: rgba(20, 18, 16, 0.55);
+  color: #fff;
 }
 
-.film__play svg { width: 1rem; height: 1rem; margin-left: 2px; }
-.film__frame:hover .film__play { background: var(--ink); color: var(--paper); }
-.film__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.reel__play svg { width: 0.7rem; height: 0.7rem; margin-left: 1px; }
 
-.film h3 { font-size: 1.0625rem; margin: 0.75rem 0 0.2rem; }
-.film p { font-family: var(--sans); font-size: 0.8125rem; color: var(--ink-3); }
+.reel__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2rem 0.7rem 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(18, 16, 14, 0.82));
+}
+
+.reel__caption em {
+  display: block;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.reel:hover .reel__caption { background: linear-gradient(transparent, rgba(18, 16, 14, 0.92)); }
 
 /* --- Travel: stills ------------------------------------------------------- */
 
@@ -363,6 +383,13 @@ code { font-family: var(--mono); font-size: 0.88em; }
 }
 
 .lightbox img { max-width: 100%; max-height: 84vh; width: auto; }
+
+.lightbox iframe {
+  width: min(400px, 92vw);
+  height: min(720px, 86vh);
+  border: 0;
+  background: var(--paper);
+}
 
 .lightbox__caption {
   margin-top: 0.9rem;
