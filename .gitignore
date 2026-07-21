@@ -1,0 +1,13 @@
+node_modules/
+
+# Full-size originals — keep these backed up somewhere else, not in git.
+assets/img/gallery/_originals/
+
+# Generated paste-in markup from `npm run images`
+assets/img/gallery/_snippets.html
+
+.DS_Store
+Thumbs.db
+.idea/
+
+.claude/

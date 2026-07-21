@@ -1,0 +1,14 @@
+{
+  "name": "kristileka-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal site of Kristi Leka — software engineer, drone pilot and traveller.",
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "serve": "npx --yes serve@14 ."
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  }
+}
