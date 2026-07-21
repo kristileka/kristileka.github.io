@@ -27,8 +27,15 @@ Four things are placeholders. The site works without them, but these are the gap
 | Gallery photos | `travel/index.html` — the `shot--empty` blocks | see section 4 |
 | Instagram in structured data | `index.html` — the `sameAs` array | see section 6 |
 
-Nothing else is invented. The copy on `index.html` is drawn from your GitHub profile and
-the two repositories; read it once and make it sound like you.
+Everything else comes from your CV and the two repositories — job titles, the 8+ years,
+the skills list, the metrics in the Impact section, and the degree. The prose is a draft
+in your voice; read it once and make it sound like you.
+
+The Impact section is the one to check most carefully. Those are real outcomes from your
+CV, deliberately **unattributed** — no employer or client is named anywhere on the site,
+per your instruction, so the numbers stand on their own. Confirm you're comfortable
+publishing each figure, since some are specific enough to identify the project to someone
+who already knows it.
 
 ---
 
@@ -167,10 +174,11 @@ link to them, don't embed them.
 
 Already in place:
 
-- `Person` structured data (JSON-LD) on both pages, with `SoftwareSourceCode` entries for
-  Viaduct and GraphDSL crediting you as maintainer and author. This is what lets Google
-  treat *"Kristi Leka"* as an entity rather than a string of text — important because
-  there are several people with your name in software.
+- `Person` structured data (JSON-LD) on both pages — job title, Tirana/Albania address,
+  degree via `alumniOf`, and `SoftwareSourceCode` entries for Viaduct and GraphDSL
+  crediting you as maintainer and author. This is what lets Google treat *"Kristi Leka"*
+  as an entity rather than a string of text — important because there are several people
+  with your name in software, and the location is a strong disambiguator.
 - Unique `<title>` and meta description per page, canonicals, `sitemap.xml`, `robots.txt`.
 - Open Graph and Twitter cards with rendered 1200×630 preview images, so links posted to
   LinkedIn, Slack or X show a real card.
