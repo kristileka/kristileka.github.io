@@ -27,15 +27,13 @@ Four things are placeholders. The site works without them, but these are the gap
 | Gallery photos | `travel/index.html` — the `shot--empty` blocks | see section 4 |
 | Instagram in structured data | `index.html` — the `sameAs` array | see section 6 |
 
-Everything else comes from your CV and the two repositories — job titles, the 8+ years,
-the skills list, the metrics in the Impact section, and the degree. The prose is a draft
-in your voice; read it once and make it sound like you.
+Everything else comes from your CV and the two repositories. The prose is a draft in your
+voice; read it once and make it sound like you.
 
-The Impact section is the one to check most carefully. Those are real outcomes from your
-CV, deliberately **unattributed** — no employer or client is named anywhere on the site,
-per your instruction, so the numbers stand on their own. Confirm you're comfortable
-publishing each figure, since some are specific enough to identify the project to someone
-who already knows it.
+The homepage is deliberately short — it exists to point at Viaduct and GraphDSL, and
+nothing competes with them. There is no employment history, no metrics wall and no skills
+grid; the CV covers those, and no employer or client is named anywhere on the site. The
+full detail still ships in the JSON-LD, which search engines read and visitors never see.
 
 ---
 
@@ -207,10 +205,16 @@ attributed to the projects, not to a company.
 
 ## 7. Editing notes
 
-- Colours, spacing and type scale are CSS custom properties at the top of `main.css`.
-  The travel page switches palette purely via `<body data-palette="field">`.
-- `assets/js/main.js` is progressive enhancement only — every feature degrades to
-  working HTML if the script fails to load.
-- The social preview cards in `assets/img/` were generated with ffmpeg. To regenerate
-  after changing the text, the filter scripts are throwaway; easiest is to re-run the
-  same `drawtext` chain, or just edit the PNGs directly.
+- The design is deliberately plain: paper background, ink text, one accent
+  (`--accent`, a burnt sienna), hairline rules, and no gradients, shadows, cards or
+  animation. If you add to it, resist the urge to decorate — the restraint is the point.
+- All colours live as custom properties at the top of `main.css`, with a
+  `prefers-color-scheme: dark` block that swaps the same tokens. Nothing else is
+  theme-aware, so a new component inherits both modes for free.
+- Body text is Source Serif 4; small meta labels use the system sans stack and code
+  uses the system mono stack. One webfont, no icon fonts.
+- `assets/js/main.js` is ~50 lines of progressive enhancement — the YouTube facade,
+  the lightbox, and the footer year. Both pages work fully without it.
+- The social preview cards and the touch icon in `assets/img/` were generated with
+  ffmpeg `drawtext` using Georgia. Easiest way to change the wording is to edit the
+  PNGs directly, or re-run the same filter chain.
