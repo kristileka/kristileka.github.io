@@ -2,7 +2,7 @@
   "name": "kristileka-github-io",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal site of Kristi Leka — software engineer, drone pilot and traveller.",
+  "description": "Personal site of Kristi Leka — senior backend engineer, backpacker and photographer.",
   "type": "module",
   "scripts": {
     "images": "node scripts/optimize-images.mjs",

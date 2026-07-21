@@ -12,12 +12,14 @@
     ]
   },
   {
-    "id": "lapland",
-    "name": "Ruka, Finnish Lapland",
-    "blurb": "Short days, floodlit pistes.",
+    "id": "finland-lapland",
+    "name": "Finland — Lapland",
+    "blurb": "Short days, floodlit pistes, and a lot of snow on the trees.",
     "posts": [
-      { "code": "DTvrmUVDZyd", "caption": "Last run of the day", "alt": "A skier on a floodlit piste among snow-covered trees at dusk, Ruka, Finnish Lapland" },
-      { "code": "DUtFOSojP_B", "caption": "Up the lift", "alt": "Two skiers in helmets and goggles riding a lift above the snow, Ruka, Finnish Lapland" }
+      { "code": "DTvrmUVDZyd", "caption": "Last run of the day", "sub": "Ruka", "alt": "A skier on a floodlit piste among snow-covered trees at dusk, Ruka, Lapland, Finland" },
+      { "code": "DUtFOSojP_B", "caption": "Up the lift", "sub": "Ruka", "alt": "Two skiers in helmets and goggles riding a lift above the snow, Ruka, Lapland, Finland" },
+      { "code": "C2nBxhnoj8q", "caption": "After dark", "alt": "Aerial view of a lit road running through a snowy resort village at night, Lapland, Finland" },
+      { "code": "C3KoST5Irfp", "caption": "Bridge in the snow", "alt": "A footbridge crossing a frozen river through deep snow-covered forest, Lapland, Finland" }
     ]
   },
   {
@@ -26,6 +28,7 @@
     "blurb": "Beaches that have no business being that colour this far north.",
     "posts": [
       { "code": "DQ2B9IFjcVz", "caption": "Above the beach", "alt": "Two people on a clifftop looking down at a turquoise beach far below, Lofoten, Norway" },
+      { "code": "DQor1hRDL0G", "caption": "Beach road", "alt": "Kristi Leka standing on the road beside a wide Lofoten beach at dusk, mountains behind, Norway" },
       { "code": "DQ6pa_nDQlv", "caption": "Fog on the ridge", "alt": "A lone figure standing on a ridge in golden fog with the sun breaking through, Lofoten, Norway" }
     ]
   },
@@ -52,14 +55,13 @@
   {
     "id": "faroe-islands",
     "name": "Faroe Islands",
-    "blurb": "The best cliffs I have flown, and the worst weather to fly them in.",
+    "blurb": "The best cliffs on the list, and the worst weather to shoot them in.",
     "posts": [
       { "code": "DI0iKbINUpu", "caption": "Sea stack and arch", "alt": "A sea stack with a natural arch standing off a green headland, Faroe Islands" },
       { "code": "DI4M1GXN-yd", "caption": "Cliff wall", "alt": "Sunlit layered sea cliffs dropping straight into deep blue ocean, Faroe Islands" },
       { "code": "DJHklITocrL", "caption": "The gorge", "alt": "Aerial view of surf pushing through a narrow sea gorge between green cliffs, Faroe Islands" },
       { "code": "DIyYIG2N5Ih", "caption": "Waterfall to the sea", "alt": "A tall waterfall falling through a green bowl down toward the sea, Faroe Islands" },
       { "code": "DJuHLrmIvSa", "caption": "Watching the cliffs", "alt": "Two people sitting on a grassy edge looking across towering layered sea cliffs, Faroe Islands" },
-      { "code": "DKw1xDfipiF", "caption": "Low cloud on the shore", "alt": "A person on a rocky shoreline as cloud rolls over the headland behind, Faroe Islands" },
       { "code": "DImPCtxtoQO", "caption": "River to the fjord", "alt": "A river winding through a green valley out toward the fjord, Faroe Islands" }
     ]
   },
@@ -79,8 +81,28 @@
     "blurb": "Stairs cut into a ridge, and a very long way down either side.",
     "posts": [
       { "code": "DExon9vtxMU", "caption": "Stairway to Heaven", "alt": "Stone steps climbing a knife-edge volcanic ridge, Madeira" },
-      { "code": "C6bWQ0uIaMZ", "caption": "Turquoise surf", "alt": "Aerial view of waves breaking turquoise against dark cliffs, Madeira" },
-      { "code": "C8XJUa8IWcI", "caption": "Edge of the island", "alt": "A person sitting on a grassy clifftop above the open sea, Madeira" }
+      { "code": "C6bWQ0uIaMZ", "caption": "Turquoise surf", "alt": "Aerial view of waves breaking turquoise against dark cliffs, Madeira" }
+    ]
+  },
+  {
+    "id": "kristi-leka",
+    "name": "Me",
+    "blurb": "The ones I am actually in. There are a few Kristi Lekas working in software — this is which one.",
+    "posts": [
+      { "code": "Dafs-quGVNb", "caption": "The Great Wall", "sub": "China", "alt": "Kristi Leka standing on the Great Wall of China in low golden light" },
+      { "code": "C4BvENWonxy", "caption": "Florence", "sub": "Italy", "alt": "Kristi Leka walking in front of the Duomo of Santa Maria del Fiore, Florence, Italy" },
+      { "code": "CdTe4JaIxjW", "caption": "The Vasa", "sub": "Stockholm", "alt": "Kristi Leka standing in front of the seventeenth-century warship Vasa at the Vasa Museum in Stockholm, Sweden" },
+      { "code": "Cz0xhleIVNa", "caption": "Ice cave", "alt": "Kristi Leka standing at the mouth of a blue glacier ice cave" },
+      { "code": "Cm2SPe4o4Tk", "caption": "Christmas lights", "portrait": true, "alt": "Portrait of Kristi Leka walking down a shopping street strung with Christmas lights" },
+      { "code": "DCKCYZjtPoL", "caption": "Across the water", "alt": "Kristi Leka on a boardwalk with snow-covered mountains rising across the water behind" },
+      { "code": "CkYl9fFIH8f", "caption": "Fortress walk", "alt": "Kristi Leka walking a cobbled path beside a fortress wall in autumn" },
+      { "code": "Cz1jzrOoGfn", "caption": "Glacial water", "alt": "Kristi Leka standing on the shore of a turquoise glacial lake below bare mountains" },
+      { "code": "DLxk9qgtNLt", "caption": "Mossy gorge", "alt": "Kristi Leka sitting in a green mossy gorge below a snow-capped peak" },
+      { "code": "DD4pcHmtqzk", "caption": "Badlands", "alt": "Kristi Leka standing on eroded, terraced badlands under a pale sky" },
+      { "code": "C8EvA4gogew", "caption": "Clifftop", "alt": "Kristi Leka on a green clifftop above a rocky coastline" },
+      { "code": "DIefeIuN2lX", "caption": "Above the sea", "alt": "Kristi Leka sitting on a roadside guardrail above the sea with a green headland behind" },
+      { "code": "DKw1xDfipiF", "caption": "Low cloud on the shore", "sub": "Faroe Islands", "alt": "Kristi Leka on a rocky shoreline as cloud rolls over the headland behind, Faroe Islands" },
+      { "code": "C8XJUa8IWcI", "caption": "Edge of the island", "sub": "Madeira", "alt": "Kristi Leka sitting on a grassy clifftop above the open sea, Madeira" }
     ]
   }
 ]

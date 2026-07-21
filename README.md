@@ -25,13 +25,21 @@ Nothing is broken and no placeholder links ship. What would still improve it:
 
 | What | Where | Notes |
 |---|---|---|
-| Specific landmark names | `scripts/reels.json` | captions are descriptive but generic — see below |
+| Countries for six photos | `scripts/reels.json` | listed below |
+| Specific landmark names | `scripts/reels.json` | see below |
 | Photographs | `travel/index.html` | see section 4 |
 
-Several films are of named places I chose not to guess at. The Faroes sea stack with the
-arch, the Madeira ridge stairs, the Iceland canyon — naming those in the caption and alt
-text would pull in searches for the landmark itself, not just for you. Edit `reels.json`
-and run `npm run reels`; the wall regenerates in place.
+Six entries in the **Me** section have no country in their alt text because I could not
+identify the place with confidence: `ice-cave`, `fortress-walk`, `badlands`,
+`glacial-water`, `clifftop` and `above-the-sea`. A country on each is worth adding —
+place names are half of why an image ranks.
+
+Beyond that, several films are of *named* places I chose not to guess at: the Faroes sea
+stack with the arch, the Madeira ridge stairs, the Iceland canyon. Naming those pulls in
+searches for the landmark itself, not only for you.
+
+Both are edits to `reels.json` followed by `npm run reels`; the wall regenerates and the
+filenames follow the captions automatically.
 
 Everything else comes from your CV and the two repositories. The prose is a draft in your
 voice; read it once and make it sound like you.
@@ -191,6 +199,21 @@ shift), and rewrites the markup. Adding a destination or a film is a JSON entry:
 
 The `alt` field is the one that matters. It is what makes the image findable, so write a
 real sentence naming the place rather than "drone shot".
+
+Three things the script does that are easy to undo by accident:
+
+- **Filenames come from captions**, so `"caption": "The Great Wall"` in the `kristi-leka`
+  section becomes `kristi-leka-the-great-wall.webp`. The filename is one of the signals
+  Google reads, and a descriptive one beats a post code. Rename a caption and the file is
+  regenerated and the old one pruned.
+- **`"portrait": true`** on one post also emits a 1080px
+  `assets/img/kristi-leka-portrait.webp`, which is what `Person.image` points at on both
+  pages. Keep exactly one.
+- **It refuses to build** if the same post appears in two sections, so a film can't be
+  silently duplicated between a destination and the Me section.
+
+It also writes a second JSON-LD block describing every cover as an `ImageObject`
+credited to you — see section 6.
 
 Two things worth knowing. Instagram's cover URLs are signed and expire within hours,
 which is why covers are downloaded and committed rather than hot-linked — if you ever see
