@@ -118,14 +118,21 @@ mv CNAME.example CNAME     # contains: kristileka.dev
 Commit and push, set the same domain under Settings → Pages → Custom domain, and tick
 **Enforce HTTPS** once the certificate is issued (usually under an hour).
 
-**Finally, update the URLs in the markup.** Every canonical, `og:url`, sitemap entry and
+**Finally, update the URLs in the source.** Every canonical, `og:url`, sitemap entry and
 JSON-LD `@id` currently points at `kristileka.github.io`. Leaving them stale after the
 move splits your ranking signal across two hostnames. From the repo root:
 
 ```bash
-grep -rl "kristileka.github.io" --include="*.html" --include="*.xml" --include="*.txt" --include="*.webmanifest" . \
+grep -rl "kristileka.github.io" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.idea . \
   | xargs sed -i 's|https://kristileka\.github\.io|https://kristileka.dev|g'
+sed -i 's|kristileka\.github\.io|kristileka.dev|' assets/css/main.css   # header comment
+npm run reels    # regenerates the image structured data against the new host
 ```
+
+Don't narrow that to `*.html` — `scripts/build-reels.mjs` holds the `SITE` constant used
+to build every image's structured data, so missing it would quietly reintroduce the old
+hostname the next time you add a film. Rerunning `npm run reels` afterwards confirms it
+took.
 
 GitHub keeps `kristileka.github.io` redirecting to the custom domain afterwards, so old
 links stay alive and the redirect passes ranking through.
