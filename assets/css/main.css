@@ -75,6 +75,10 @@ code { font-family: var(--mono); font-size: 0.88em; }
   padding-inline: var(--gutter);
 }
 
+/* The travel page is a picture wall — it earns the extra width. Prose inside
+   it stays pinned to --measure, so only the images spread. */
+.page--wide { max-width: 62rem; }
+
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -240,45 +244,81 @@ code { font-family: var(--mono); font-size: 0.88em; }
 
 .footer ul { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 
-/* --- Travel: reels -------------------------------------------------------
-   Covers are self-hosted; the Instagram embed only loads on click.        */
+/* --- Travel: destinations ------------------------------------------------- */
+
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin-top: 2.5rem;
+  padding-block: 0.9rem;
+  border-block: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+}
+
+.jump a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid transparent; }
+.jump a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.place { padding-top: clamp(2.25rem, 5vw, 3rem); scroll-margin-top: 1.5rem; }
+
+.place__name { font-size: 1.35rem; margin-bottom: 0.3rem; }
+
+.place__blurb {
+  max-width: var(--measure);
+  margin-bottom: 1.25rem;
+  color: var(--ink-2);
+}
+
+/* --- Travel: films -------------------------------------------------------
+   Covers are self-hosted; the Instagram embed only loads on click.
+
+   The posts are a mix of 9:16 reels, 4:5 stills and a couple of landscapes.
+   3:4 is the compromise crop that costs the portrait ones least; the
+   landscapes are marked `is-wide` at build time and span two columns instead,
+   because centre-cropping them to a portrait tile would throw the frame away. */
 
 .reels {
   display: grid;
-  gap: 0.9rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  grid-auto-flow: dense;
+  gap: 0.75rem;
 }
 
 .reel {
   position: relative;
   display: block;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border: 1px solid var(--rule);
   background: var(--paper-2);
   text-decoration: none;
 }
 
-.reel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.reels .is-wide { grid-column: span 2; }
+.reels .is-wide .reel { aspect-ratio: 3 / 2; }
+
+@media (max-width: 34em) {
+  .reels .is-wide { grid-column: span 1; }
+  .reels .is-wide .reel { aspect-ratio: 3 / 4; }
 }
 
-.reel__play {
+.reel img { width: 100%; height: 100%; object-fit: cover; }
+
+.reel__badge {
   position: absolute;
-  top: 0.55rem;
-  right: 0.55rem;
-  width: 1.6rem;
-  height: 1.6rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(20, 18, 16, 0.55);
+  background: rgba(20, 18, 16, 0.5);
   color: #fff;
 }
 
-.reel__play svg { width: 0.7rem; height: 0.7rem; margin-left: 1px; }
+.reel__badge svg { width: 0.72rem; height: 0.72rem; }
 
 .reel__caption {
   position: absolute;

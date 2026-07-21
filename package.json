@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "images": "node scripts/optimize-images.mjs",
+    "reels": "node scripts/build-reels.mjs",
     "serve": "npx --yes serve@14 ."
   },
   "devDependencies": {

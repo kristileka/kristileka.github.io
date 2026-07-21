@@ -1,0 +1,86 @@
+[
+  {
+    "id": "azores",
+    "name": "Azores, Portugal",
+    "blurb": "Five islands' worth of waterfalls, tea terraces and cliff road.",
+    "posts": [
+      { "code": "DXMe20UDXba", "caption": "Monte Palace Hotel", "sub": "São Miguel", "alt": "Aerial view of the abandoned Monte Palace Hotel standing above the Sete Cidades lake, São Miguel, Azores" },
+      { "code": "DWY1BYpDdRL", "caption": "Gorreana Tea Plantation", "sub": "São Miguel", "alt": "Curved terraced rows of the Gorreana tea plantation, São Miguel, Azores" },
+      { "code": "DYUQKZSN02m", "caption": "Waterfall lagoon", "alt": "Dozens of thin waterfalls falling down a green cliff face into a still lagoon, Azores" },
+      { "code": "DWMW-DZjFDm", "caption": "Clifftop trail", "alt": "A narrow footpath cut into a green clifftop high above the Atlantic, Azores" },
+      { "code": "DWWOcq7DXmo", "caption": "Ravine waterfall", "alt": "A stream falling through a densely overgrown green ravine, Azores" }
+    ]
+  },
+  {
+    "id": "lapland",
+    "name": "Ruka, Finnish Lapland",
+    "blurb": "Short days, floodlit pistes.",
+    "posts": [
+      { "code": "DTvrmUVDZyd", "caption": "Last run of the day", "alt": "A skier on a floodlit piste among snow-covered trees at dusk, Ruka, Finnish Lapland" },
+      { "code": "DUtFOSojP_B", "caption": "Up the lift", "alt": "Two skiers in helmets and goggles riding a lift above the snow, Ruka, Finnish Lapland" }
+    ]
+  },
+  {
+    "id": "lofoten",
+    "name": "Lofoten, Norway",
+    "blurb": "Beaches that have no business being that colour this far north.",
+    "posts": [
+      { "code": "DQ2B9IFjcVz", "caption": "Above the beach", "alt": "Two people on a clifftop looking down at a turquoise beach far below, Lofoten, Norway" },
+      { "code": "DQ6pa_nDQlv", "caption": "Fog on the ridge", "alt": "A lone figure standing on a ridge in golden fog with the sun breaking through, Lofoten, Norway" }
+    ]
+  },
+  {
+    "id": "iceland",
+    "name": "Iceland",
+    "blurb": "Black sand, green canyons, weather that changes its mind hourly.",
+    "posts": [
+      { "code": "DP6au9yCPmD", "caption": "Black sand coast", "alt": "A black sand beach meeting a steep dark mountain under low cloud, Iceland" },
+      { "code": "DPTjR4bjGBS", "caption": "Canyon viewpoint", "alt": "Two people at a viewpoint above a green canyon with a waterfall running through it, Iceland" },
+      { "code": "DLsDZG1MPvv", "caption": "Waterfall from above", "alt": "Aerial view of a waterfall dropping into a mossy green canyon, Iceland" }
+    ]
+  },
+  {
+    "id": "svalbard",
+    "name": "Svalbard",
+    "blurb": "78° north. Polar bear signs at the edge of town.",
+    "posts": [
+      { "code": "DCmDAfYN_M3", "caption": "Global Seed Vault", "alt": "The illuminated entrance of the Svalbard Global Seed Vault glowing turquoise against the snow" },
+      { "code": "DOG55WNjB87", "caption": "Distances from Longyearbyen", "alt": "The Longyearbyen signpost showing distances to world cities, beside a polar bear warning sign, Svalbard" },
+      { "code": "DOBoz9sjeev", "caption": "Off the ship", "alt": "A person at a ship's railing looking out at an Arctic fjord and bare mountainside, Svalbard" }
+    ]
+  },
+  {
+    "id": "faroe-islands",
+    "name": "Faroe Islands",
+    "blurb": "The best cliffs I have flown, and the worst weather to fly them in.",
+    "posts": [
+      { "code": "DI0iKbINUpu", "caption": "Sea stack and arch", "alt": "A sea stack with a natural arch standing off a green headland, Faroe Islands" },
+      { "code": "DI4M1GXN-yd", "caption": "Cliff wall", "alt": "Sunlit layered sea cliffs dropping straight into deep blue ocean, Faroe Islands" },
+      { "code": "DJHklITocrL", "caption": "The gorge", "alt": "Aerial view of surf pushing through a narrow sea gorge between green cliffs, Faroe Islands" },
+      { "code": "DIyYIG2N5Ih", "caption": "Waterfall to the sea", "alt": "A tall waterfall falling through a green bowl down toward the sea, Faroe Islands" },
+      { "code": "DJuHLrmIvSa", "caption": "Watching the cliffs", "alt": "Two people sitting on a grassy edge looking across towering layered sea cliffs, Faroe Islands" },
+      { "code": "DKw1xDfipiF", "caption": "Low cloud on the shore", "alt": "A person on a rocky shoreline as cloud rolls over the headland behind, Faroe Islands" },
+      { "code": "DImPCtxtoQO", "caption": "River to the fjord", "alt": "A river winding through a green valley out toward the fjord, Faroe Islands" }
+    ]
+  },
+  {
+    "id": "tenerife",
+    "name": "Tenerife",
+    "blurb": "Pine forest at altitude, surf at the bottom of the cliff.",
+    "posts": [
+      { "code": "DJKB9pHNfoY", "caption": "Cliffs and surf", "alt": "Aerial view of coastal cliffs with white surf and turquoise water, Tenerife" },
+      { "code": "DGf9OpptM_j", "caption": "The forest road", "alt": "A straight road running through tall pine forest, Tenerife" },
+      { "code": "DGOXeZ4t3XG", "caption": "Trailhead", "alt": "Two people resting on a wooden rail with dry volcanic hills behind, Tenerife" }
+    ]
+  },
+  {
+    "id": "madeira",
+    "name": "Madeira",
+    "blurb": "Stairs cut into a ridge, and a very long way down either side.",
+    "posts": [
+      { "code": "DExon9vtxMU", "caption": "Stairway to Heaven", "alt": "Stone steps climbing a knife-edge volcanic ridge, Madeira" },
+      { "code": "C6bWQ0uIaMZ", "caption": "Turquoise surf", "alt": "Aerial view of waves breaking turquoise against dark cliffs, Madeira" },
+      { "code": "C8XJUa8IWcI", "caption": "Edge of the island", "alt": "A person sitting on a grassy clifftop above the open sea, Madeira" }
+    ]
+  }
+]

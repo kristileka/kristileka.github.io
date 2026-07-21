@@ -5,29 +5,33 @@ Everything is hand-editable.
 
 ```
 index.html            work: Viaduct and GraphDSL (the SEO centrepiece)
-travel/index.html     travel films, pulled from Instagram
+travel/index.html     28 films across 8 destinations
 404.html
 assets/css/main.css   design system — all pages share it
 assets/js/main.js     lightbox + Instagram embed loader (~50 lines)
-assets/img/reels/     self-hosted cover images for the films
+assets/img/reels/     self-hosted cover images (generated)
 assets/img/gallery/   photographs (empty until you add some)
 sitemap.xml, robots.txt, site.webmanifest
-scripts/              image optimiser
+scripts/reels.json    the film wall: destinations, captions, alt text
+scripts/build-reels.mjs   regenerates the wall — `npm run reels`
+scripts/optimize-images.mjs   photo pipeline — `npm run images`
 ```
 
 ---
 
 ## 1. Outstanding
 
-Nothing is broken and no placeholder links ship. Two things would improve it:
+Nothing is broken and no placeholder links ship. What would still improve it:
 
 | What | Where | Notes |
 |---|---|---|
-| Locations for three films | `travel/index.html` — search `TODO` | captions read `Waterfall lagoon`, `Clifftop trail`, `Geothermal field` |
-| Photographs | `travel/index.html` — commented-out stills block | see section 4 |
+| Specific landmark names | `scripts/reels.json` | captions are descriptive but generic — see below |
+| Photographs | `travel/index.html` | see section 4 |
 
-The other three films caption themselves from the text burned into the video, so
-*Monte Palace Hotel*, *Gorreana Tea Plantation* and *Iceland* are accurate as written.
+Several films are of named places I chose not to guess at. The Faroes sea stack with the
+arch, the Madeira ridge stairs, the Iceland canyon — naming those in the caption and alt
+text would pull in searches for the landmark itself, not just for you. Edit `reels.json`
+and run `npm run reels`; the wall regenerates in place.
 
 Everything else comes from your CV and the two repositories. The prose is a draft in your
 voice; read it once and make it sound like you.
@@ -169,22 +173,32 @@ that click, so the page stays fast and no third-party cookies land on first pain
 JavaScript disabled the same card is just a link straight to the post, which is why it
 degrades cleanly.
 
-To add a film, grab its cover and convert it:
+**Do not hand-edit the film wall in `travel/index.html`.** Everything between the
+`REELS:START` and `REELS:END` markers is generated. Edit `scripts/reels.json` and run:
 
 ```bash
-CODE=DYUQKZSN02m
-curl -sL -A "Mozilla/5.0" "https://www.instagram.com/p/$CODE/media/?size=l" -o cover.jpg
-ffmpeg -i cover.jpg -vf "scale=480:-2" -quality 78 "assets/img/reels/$CODE.webp"
+npm run reels
 ```
 
-Then copy a `<li>` block in `travel/index.html`, swap the code in both the `href` and
-`data-embed`, point the `<img>` at the new file, and write the caption and alt text.
+That fetches any cover it doesn't already have, converts it to a ~480px WebP, reads the
+real pixel dimensions back out so every `<img>` carries `width`/`height` (no layout
+shift), and rewrites the markup. Adding a destination or a film is a JSON entry:
 
-Two caveats worth knowing. Instagram's cover URLs are signed and expire, so download
-rather than hot-link — which is what the command above does. And if you ever want the
-video itself to rank in search, Instagram won't do that for you; YouTube would, since it
-is the second largest search engine and the video would rank there on its own. Right now
-the films are here to be seen, not to be found, which is a reasonable trade.
+```json
+{ "code": "DYUQKZSN02m", "caption": "Waterfall lagoon", "sub": "Flores",
+  "alt": "Describe what is actually in the frame, and name the place" }
+```
+
+The `alt` field is the one that matters. It is what makes the image findable, so write a
+real sentence naming the place rather than "drone shot".
+
+Two things worth knowing. Instagram's cover URLs are signed and expire within hours,
+which is why covers are downloaded and committed rather than hot-linked — if you ever see
+a broken cover, delete the WebP and re-run. And if you want the *videos* themselves to
+rank in search, Instagram won't do that for you; YouTube would, since the video would
+rank there on its own. Right now the films are here to be seen, while the **covers** are
+what's indexable — 28 images on your own domain, each with descriptive alt text and a
+place name, which is the part that can surface in Google Images.
 
 ---
 
