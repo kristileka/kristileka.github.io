@@ -81,18 +81,16 @@ rather than opening the file directly — the absolute paths (`/assets/...`) nee
 
 ---
 
-## 3. Custom domain
+## 3. Custom domain — done
 
-**Buy `kristileka.dev.`** Reasons: `.dev` is on the HSTS preload list so it is
-HTTPS-only by design, it reads unambiguously as an engineer's domain, and it is a real
-gTLD rather than a repurposed country code. `.tech` is fine but noisier and usually has a
-steep renewal price after the first year — check year-two pricing before committing.
-Registrar: Cloudflare Registrar sells at cost with no upsells; Porkbun is the next best.
+The site is served from **`kristileka.dev`**, registered at Namecheap, with GitHub Pages
+still doing the hosting. `kristileka.github.io` now redirects to it, so old links stay
+alive and the redirect passes ranking through.
 
-Don't bother buying misspellings. One domain, used consistently everywhere, is what
-builds the signal.
+The `CNAME` file in the repo root is what tells GitHub the domain — it is not optional
+decoration, and deleting it reverts the site to `kristileka.github.io`.
 
-**DNS** — at your registrar, for the apex `kristileka.dev`:
+DNS at Namecheap (Advanced DNS → Host Records):
 
 ```
 A     @   185.199.108.153
@@ -106,36 +104,28 @@ AAAA  @   2606:50c0:8003::153
 CNAME www kristileka.github.io.
 ```
 
-If you use Cloudflare DNS, set those records to **DNS only** (grey cloud), not proxied —
-proxying breaks GitHub's certificate provisioning.
+Namecheap ships a parking `CNAME` for `www` and a URL Redirect Record for `@` on a new
+domain; both were deleted, and re-adding either will break this.
 
-**Then, in the repo:**
+### If you ever move again
 
-```bash
-mv CNAME.example CNAME     # contains: kristileka.dev
-```
-
-Commit and push, set the same domain under Settings → Pages → Custom domain, and tick
-**Enforce HTTPS** once the certificate is issued (usually under an hour).
-
-**Finally, update the URLs in the source.** Every canonical, `og:url`, sitemap entry and
-JSON-LD `@id` currently points at `kristileka.github.io`. Leaving them stale after the
-move splits your ranking signal across two hostnames. From the repo root:
+Every canonical, `og:url`, sitemap entry, `robots.txt` line and JSON-LD `@id` carries the
+hostname. Leaving any of them stale splits the ranking signal across two hosts:
 
 ```bash
-grep -rl "kristileka.github.io" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.idea . \
-  | xargs sed -i 's|https://kristileka\.github\.io|https://kristileka.dev|g'
-sed -i 's|kristileka\.github\.io|kristileka.dev|' assets/css/main.css   # header comment
+grep -rl "kristileka.dev" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.idea . \
+  | xargs sed -i 's|https://kristileka\.dev|https://NEW-DOMAIN|g'
 npm run reels    # regenerates the image structured data against the new host
 ```
 
-Don't narrow that to `*.html` — `scripts/build-reels.mjs` holds the `SITE` constant used
-to build every image's structured data, so missing it would quietly reintroduce the old
-hostname the next time you add a film. Rerunning `npm run reels` afterwards confirms it
-took.
+Don't narrow that to `*.html`. `scripts/build-reels.mjs` holds the `SITE` constant used to
+build every image's structured data, so missing it would quietly reintroduce the old
+hostname the next time you add a film — rerunning `npm run reels` is what proves it took.
 
-GitHub keeps `kristileka.github.io` redirecting to the custom domain afterwards, so old
-links stay alive and the redirect passes ranking through.
+One `.dev` quirk worth remembering: the TLD is on the HSTS preload list, so browsers
+refuse it over plain HTTP. There is no insecure fallback, which means that between DNS
+resolving and a certificate being issued the domain does not load at all rather than
+loading insecurely. That is expected, not a misconfiguration.
 
 ---
 

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap — update the host here too if you move to a custom domain.
-Sitemap: https://kristileka.github.io/sitemap.xml
+Sitemap: https://kristileka.dev/sitemap.xml

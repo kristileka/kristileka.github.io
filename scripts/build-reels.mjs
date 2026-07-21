@@ -33,7 +33,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'assets', 'img', 'reels');
 const pageFile = path.join(root, 'travel', 'index.html');
 
-const SITE = 'https://kristileka.github.io';
+const SITE = 'https://kristileka.dev';
 const PERSON = `${SITE}/#kristileka`;
 const WIDTH = 480;
 const PORTRAIT_WIDTH = 1080;
